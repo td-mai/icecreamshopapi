@@ -20,6 +20,11 @@ class Product(models.Model):
     def __str__(self):
         return self.flavor
 
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+
+
 class Order(models.Model):
     order_number = models.CharField(primary_key=True, max_length=6, unique=True)
     order_date = models.DateTimeField(auto_now=True)
@@ -46,13 +51,12 @@ class ProductOrder(models.Model):
         self.price = self.product.unit_price * self.quantity
 
     def clean(self):
-        if not hasattr(self, 'product'):
-            return False
         if self.quantity > self.product.remaining_quantity:
             raise ValidationError("Order quantity must not be greater than remaining quantity. %s remaining."\
                                   %self.product.remaining_quantity)
 
     def save(self, *args, **kwargs):
+        self.full_clean()
         #if new order
         if not self.pk:
             new_create = True

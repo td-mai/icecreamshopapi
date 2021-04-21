@@ -1,6 +1,6 @@
 # Icecreamshopapi
 
-This project is a backend api service made by django, django_api_framework, used for a web application icecreamshop management 
+This repository is a backend api service made by django, django_api_framework, used for the project icecreamshopweb
 
 ## Production
 
@@ -52,4 +52,7 @@ python manage.py loaddata fixtures/*.json
 
 python manage.py runserver
 
+### Test
+
+python manage.py test
 
