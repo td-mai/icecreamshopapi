@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  db:
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql/data/
+    environment:
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=myRoot*Pass
+    container_name: icecreamshopdb
+
+  django:
+    build: .
+    volumes:
+      - .:/usr/src/icecreamshop/
+      - static_volume:/usr/src/icecreamshop/static
+      - media_volume:/usr/src/icecreamshop/media
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SUPERUSER_PASSWORD=myAdmin*Pass
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_EMAIL=admin@icecreamshop.com
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=icecreamshopdb
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=myRoot*Pass
+    links:
+      - db:database
+    depends_on:
+      - db
+  nginx:
+    build:
+      context: ../icecreamshopfront
+      dockerfile: Dockerfile
+    volumes:
+      - static_volume:/usr/src/icecreamshop/static
+      - media_volume:/usr/src/icecreamshop/media
+    ports:
+      - 1337:80
+    depends_on:
+      - django
+
+volumes:
+  mysql_data:
+  static_volume:
+  media_volume:

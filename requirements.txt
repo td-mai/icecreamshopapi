@@ -1,0 +1,7 @@
+django>=3.0
+djangorestframework
+mysqlclient
+pillow
+requests
+django-cors-headers
+uwsgi

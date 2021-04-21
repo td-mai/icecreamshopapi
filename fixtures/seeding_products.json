@@ -1,0 +1,62 @@
+[
+  {
+    "model": "icecreamshop.product",
+    "pk": 1,
+    "fields" : {
+      "flavor": "Chocolat Orange",
+      "unit_price": 2.0,
+      "recipe": "lait, chocolat, orange jus",
+      "image": "images/chocolat-orange.png",
+      "remaining_quantity": 40,
+      "max_quantity": 40
+    }
+  },
+  {
+    "model": "icecreamshop.product",
+    "pk": 2,
+    "fields" : {
+      "flavor": "Sirop d'érable Noix",
+      "unit_price": 2.0,
+      "recipe": "lait, noix, sirop d'érable",
+      "image": "images/maple-walnut.png",
+      "remaining_quantity": 40,
+      "max_quantity": 40
+    }
+  },
+  {
+    "model": "icecreamshop.product",
+    "pk": 3,
+    "fields" : {
+      "flavor": "Menthe Chocolat",
+      "unit_price": 2.0,
+      "recipe": "lait, chocolat, menthe",
+      "image": "images/mint-chocolat.png",
+      "remaining_quantity": 40,
+      "max_quantity": 40
+    }
+  },
+  {
+    "model": "icecreamshop.product",
+    "pk": 4,
+    "fields" : {
+      "flavor": "Vanille Fraise Chocolat",
+      "unit_price": 2.0,
+      "recipe": "lait, vanille, fraise, chocolat",
+      "image": "images/strawberry-vanille-chocolate.png",
+      "remaining_quantity": 40,
+      "max_quantity": 40
+    }
+  },
+  {
+    "model": "icecreamshop.product",
+    "pk": 5,
+    "fields" : {
+      "flavor": "Chocolat blanc Framboise",
+      "unit_price": 2.0,
+      "recipe": "lait, chocolat blanc, framboise",
+      "image": "images/white-chocolate-raspberry.png",
+      "remaining_quantity": 40,
+      "max_quantity": 40
+    }
+  }
+]
