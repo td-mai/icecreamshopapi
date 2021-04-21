@@ -50,6 +50,8 @@ python manage.py loaddata fixtures/*.json
 
 *Run server in dev mode*
 
+In settings.py, set DEBUG=True
+
 python manage.py runserver
 
 ### Test
